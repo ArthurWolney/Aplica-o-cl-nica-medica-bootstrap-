@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Clínica Médica</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      position: relative;
+      padding-top: 70px;
+    }
+    .panel {
+      margin-bottom: 40px;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .nav > li > a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="70">
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      
+      <ul class="nav navbar-nav">
+        <li><a href="fronteverton.html"><span class="glyphicon glyphicon-th-list"></span> Clínica Médica</a></li>
+        <li><a href="frontevertonPerfil.html"><span class="glyphicon glyphicon-th-list"></span> Perfil</a></li>
+        <li><a href="frontevertonTipo.html">Tipo</a></li>
+        <li><a href="frontevertonFuncionario.html"><span class="glyphicon glyphicon-user"></span> Funcionário</a></li>
+        <li><a href="frontevertonEspecialidade.html"><span class="glyphicon glyphicon-briefcase"></span> Especialidade</a></li>
+        <li><a href="frontevertonPaciente.html"><span class="glyphicon glyphicon-heart"></span> Paciente</a></li>
+        <li><a href="frontevertonConvenio.html"><span class="glyphicon glyphicon-credit-card"></span> Convênio</a></li>
+        <li><a href="frontevertonConsulta.html"><span class="glyphicon glyphicon-calendar"></span> Consulta</a></li>
+        <li><a href="frontevertonProntuario.html"><span class="glyphicon glyphicon-list-alt"></span> Prontuário</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+  
+
+    <!-- Consulta -->
+<div id="consulta" class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Consulta</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>ID</label>
+            <input type="number" class="form-control" name="id">
+          </div>
+          <div class="form-group col-md-8">
+            <label>Data e Horário</label>
+            <input type="datetime-local" class="form-control" name="dataHorario">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Sintomas</label>
+          <textarea class="form-control" name="sintomas" rows="3"></textarea>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>É Retorno?</label>
+            <select class="form-control" name="eRetorno">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Está Ativa?</label>
+            <select class="form-control" name="estaAtiva">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-default">Salvar Consulta</button>
+      </form>
+      <h4>Histórico de Consultas Cadastradas</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data e Horário</th>
+      <th>Sintomas</th>
+      <th>É Retorno?</th>
+      <th>Está Ativa?</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaConsultas">
+    <!-- Preenchido dinamicamente -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  
+
+
+</body>
+</html>

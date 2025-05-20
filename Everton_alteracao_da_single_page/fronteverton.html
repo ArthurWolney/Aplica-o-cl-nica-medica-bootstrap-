@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Clínica Médica</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      position: relative;
+      padding-top: 70px;
+    }
+    .panel {
+      margin-bottom: 40px;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .nav > li > a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="70">
+  <div id="topo"></div>
+ 
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    
+    <ul class="nav navbar-nav">
+      <li><a href="fronteverton.html"><span class="glyphicon glyphicon-th-list"></span> Clínica Médica</a></li>
+      <li><a href="frontevertonPerfil.html"><span class="glyphicon glyphicon-th-list"></span> Perfil</a></li>
+      <li><a href="frontevertonTipo.html">Tipo</a></li>
+      <li><a href="frontevertonFuncionario.html"><span class="glyphicon glyphicon-user"></span> Funcionário</a></li>
+      <li><a href="frontevertonEspecialidade.html"><span class="glyphicon glyphicon-briefcase"></span> Especialidade</a></li>
+      <li><a href="frontevertonPaciente.html"><span class="glyphicon glyphicon-heart"></span> Paciente</a></li>
+      <li><a href="frontevertonConvenio.html"><span class="glyphicon glyphicon-credit-card"></span> Convênio</a></li>
+      <li><a href="frontevertonConsulta.html"><span class="glyphicon glyphicon-calendar"></span> Consulta</a></li>
+      <li><a href="frontevertonProntuario.html"><span class="glyphicon glyphicon-list-alt"></span> Prontuário</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+
+        <!-- Tipo de Funcionário -->
+<div id="tipo" class="panel panel-success">
+    <div class="panel-heading"><h3 class="panel-title">Tipo de Funcionário</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>Tipo</label>
+          <select class="form-control" name="tipoFuncionario">
+            <option value="ATENDENTE">Atendente</option>
+            <option value="MEDICO">Médico</option>
+            <option value="OUTROS">Outros</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar Tipo</button>
+      </form>
+    </div>
+  </div>
+
+      <!-- Perfil -->
+<div id="perfil" class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Perfil</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" name="id">
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" name="nome">
+        </div>
+  
+        <h4>Permissões</h4>
+        <div class="checkbox">
+          <label><input type="checkbox" name="cadastrarFuncionario"> Cadastrar Funcionário</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="lerFuncionario"> Ler Funcionário</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="atualizarFuncionario"> Atualizar Funcionário</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="deletarFuncionario"> Deletar Funcionário</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="listarFuncionario"> Listar Funcionário</label>
+        </div>
+  
+        <div class="checkbox">
+          <label><input type="checkbox" name="cadastrarPaciente"> Cadastrar Paciente</label>
+        </div>
+        <!-- ... adicione os demais campos de permissão de forma semelhante ... -->
+  
+        <button type="submit" class="btn btn-primary">Salvar Perfil</button>
+      </form>
+      <h4>Histórico de Perfis Cadastrados</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Permissões</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaPerfis">
+    <!-- Preenchido via JavaScript -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+    <!-- Funcionario -->
+<div id="funcionario" class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Funcionário</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>ID</label>
+            <input type="number" class="form-control" name="id">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Usuário</label>
+            <input type="text" class="form-control" name="usuario">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Senha</label>
+            <input type="password" class="form-control" name="senha">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="nome">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Idade</label>
+            <input type="number" class="form-control" name="idade">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Sexo</label>
+            <select class="form-control" name="sexo">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="O">Outro</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>CPF</label>
+            <input type="text" class="form-control" name="cpf">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-5">
+            <label>Rua</label>
+            <input type="text" class="form-control" name="rua">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Número</label>
+            <input type="text" class="form-control" name="numero">
+          </div>
+          <div class="form-group col-md-5">
+            <label>Complemento</label>
+            <input type="text" class="form-control" name="complemento">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Bairro</label>
+            <input type="text" class="form-control" name="bairro">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Cidade</label>
+            <input type="text" class="form-control" name="cidade">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Estado</label>
+            <input type="text" class="form-control" name="estado">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Contato</label>
+            <input type="text" class="form-control" name="contato">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Data de Nascimento</label>
+          <input type="date" class="form-control" name="dataNascimento">
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Salvar Funcionário</button>
+      </form>
+       <h4>Histórico de Funcionários Cadastrados</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuário</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Email</th>
+      <th>Contato</th>
+      <th>Data Nasc.</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaFuncionarios">
+</tr>
+
+    <!-- Dados adicionados via JS -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+  <!-- Especialidade -->
+<div id="especialidade" class="panel panel-danger">
+    <div class="panel-heading"><h3 class="panel-title">Especialidade</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" name="id">
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" name="nome">
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea class="form-control" name="descricao" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Salvar Especialidade</button>
+      </form>
+      <h4>Histórico de Especialidades Cadastradas</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaEspecialidades">
+    <!-- Dados inseridos via JavaScript -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  
+
+    <!-- Paciente -->
+<div id="paciente" class="panel panel-info">
+    <div class="panel-heading"><h3 class="panel-title">Paciente</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>ID</label>
+            <input type="number" class="form-control" name="id">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="nome">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Idade</label>
+            <input type="number" class="form-control" name="idade">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Sexo</label>
+            <select class="form-control" name="sexo">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="O">Outro</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>CPF</label>
+            <input type="text" class="form-control" name="cpf">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-5">
+            <label>Rua</label>
+            <input type="text" class="form-control" name="rua">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Número</label>
+            <input type="text" class="form-control" name="numero">
+          </div>
+          <div class="form-group col-md-5">
+            <label>Complemento</label>
+            <input type="text" class="form-control" name="complemento">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Bairro</label>
+            <input type="text" class="form-control" name="bairro">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Cidade</label>
+            <input type="text" class="form-control" name="cidade">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Estado</label>
+            <input type="text" class="form-control" name="estado">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Contato</label>
+          <input type="text" class="form-control" name="contato">
+        </div>
+  
+        <div class="form-group">
+          <label>Data de Nascimento</label>
+          <input type="date" class="form-control" name="dataNascimento">
+        </div>
+  
+        <button type="submit" class="btn btn-info">Salvar Paciente</button>
+      </form>
+      <h4>Histórico de Pacientes Cadastrados</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Sexo</th>
+      <th>CPF</th>
+      <th>Email</th>
+      <th>Contato</th>
+      <th>Data Nasc.</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaPacientes">
+    <!-- Preenchido dinamicamente -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+      <!-- Convênio -->
+<div id="convenio" class="panel panel-success">
+    <div class="panel-heading"><h3 class="panel-title">Convênio</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" name="id">
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" name="nome">
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea class="form-control" name="descricao" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar Convênio</button>
+      </form>
+      <h4>Histórico de Convênios Cadastrados</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaConvenios">
+    <!-- Preenchido via JavaScript -->
+  </tbody>
+</table>
+  
+
+    <!-- Consulta -->
+<div id="consulta" class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Consulta</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>ID</label>
+            <input type="number" class="form-control" name="id">
+          </div>
+          <div class="form-group col-md-8">
+            <label>Data e Horário</label>
+            <input type="datetime-local" class="form-control" name="dataHorario">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Sintomas</label>
+          <textarea class="form-control" name="sintomas" rows="3"></textarea>
+        </div>
+  
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>É Retorno?</label>
+            <select class="form-control" name="eRetorno">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Está Ativa?</label>
+            <select class="form-control" name="estaAtiva">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-default">Salvar Consulta</button>
+      </form>
+      <h4>Histórico de Consultas Cadastradas</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data e Horário</th>
+      <th>Sintomas</th>
+      <th>É Retorno?</th>
+      <th>Está Ativa?</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaConsultas">
+    <!-- Preenchido dinamicamente -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  
+
+    <!-- Prontuário -->
+<div id="prontuario" class="panel panel-warning">
+    <div class="panel-heading"><h3 class="panel-title">Prontuário</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" name="id">
+        </div>
+        <div class="form-group">
+          <label>Receituário</label>
+          <textarea class="form-control" name="receituario" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Exames</label>
+          <textarea class="form-control" name="exames" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Observações</label>
+          <input type="text" class="form-control" name="observacoes">
+        </div>
+        <button type="submit" class="btn btn-warning">Salvar Prontuário</button>
+      </form>
+      <h4>Histórico de Prontuários Cadastrados</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Receituário</th>
+      <th>Exames</th>
+      <th>Observações</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaProntuarios">
+    <!-- Dados preenchidos via JavaScript -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+
+
+  <!-- Scripts Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  
+  <script>
+  let funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    atualizarTabelaFuncionarios();
+  });
+
+  document.querySelector('#funcionario form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      usuario: form.usuario.value,
+      senha: form.senha.value,
+      nome: form.nome.value,
+      idade: form.idade.value,
+      sexo: form.sexo.value,
+      cpf: form.cpf.value,
+      rua: form.rua.value,
+      numero: form.numero.value,
+      complemento: form.complemento.value,
+      bairro: form.bairro.value,
+      cidade: form.cidade.value,
+      estado: form.estado.value,
+      contato: form.contato.value,
+      email: form.email.value,
+      dataNascimento: form.dataNascimento.value
+    };
+
+    funcionarios.push(dados);
+    localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
+    atualizarTabelaFuncionarios();
+    form.reset();
+  });
+
+  function atualizarTabelaFuncionarios() {
+    const tabela = document.getElementById('tabelaFuncionarios');
+    tabela.innerHTML = '';
+
+    funcionarios.forEach((f, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${f.id}</td>
+        <td>${f.usuario}</td>
+        <td>${f.nome}</td>
+        <td>${f.cpf}</td>
+        <td>${f.email}</td>
+        <td>${f.contato}</td>
+        <td>${f.dataNascimento}</td>
+        <td>
+          <button class="btn btn-primary btn-xs" onclick="editarFuncionario(this)">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirFuncionario(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirFuncionario(index) {
+    if (confirm('Deseja excluir este funcionário?')) {
+      funcionarios.splice(index, 1);
+      localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
+      atualizarTabelaFuncionarios();
+    }
+  }
+
+  function editarFuncionario(botao) {
+    var linha = botao.closest('tr');
+    var colunas = linha.querySelectorAll('td');
+
+    document.querySelector('input[name="id"]').value = colunas[0].innerText;
+    document.querySelector('input[name="usuario"]').value = colunas[1].innerText;
+    document.querySelector('input[name="nome"]').value = colunas[2].innerText;
+    document.querySelector('input[name="cpf"]').value = colunas[3].innerText;
+    document.querySelector('input[name="email"]').value = colunas[4].innerText;
+    document.querySelector('input[name="contato"]').value = colunas[5].innerText;
+    document.querySelector('input[name="dataNascimento"]').value = colunas[6].innerText;
+  }
+</script>
+
+
+<script>
+  const pacientes = JSON.parse(localStorage.getItem('pacientes')) || [];
+
+  document.querySelector('#paciente form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      nome: form.nome.value,
+      idade: form.idade.value,
+      sexo: form.sexo.value,
+      cpf: form.cpf.value,
+      email: form.email.value,
+      rua: form.rua.value,
+      numero: form.numero.value,
+      complemento: form.complemento.value,
+      bairro: form.bairro.value,
+      cidade: form.cidade.value,
+      estado: form.estado.value,
+      contato: form.contato.value,
+      dataNascimento: form.dataNascimento.value
+    };
+
+    pacientes.push(dados);
+    localStorage.setItem('pacientes', JSON.stringify(pacientes)); // Salva no localStorage
+    atualizarTabelaPacientes();
+    form.reset();
+  });
+
+  function atualizarTabelaPacientes() {
+    const tabela = document.getElementById('tabelaPacientes');
+    tabela.innerHTML = '';
+
+    pacientes.forEach((p, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${p.id}</td>
+        <td>${p.nome}</td>
+        <td>${p.idade}</td>
+        <td>${p.sexo}</td>
+        <td>${p.cpf}</td>
+        <td>${p.email}</td>
+        <td>${p.contato}</td>
+        <td>${p.dataNascimento}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarPaciente(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirPaciente(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirPaciente(index) {
+    if (confirm('Deseja excluir este paciente?')) {
+      pacientes.splice(index, 1);
+      localStorage.setItem('pacientes', JSON.stringify(pacientes)); // Atualiza o localStorage
+      atualizarTabelaPacientes();
+    }
+  }
+
+  function editarPaciente(index) {
+    const p = pacientes[index];
+    const form = document.querySelector('#paciente form');
+
+    form.id.value = p.id;
+    form.nome.value = p.nome;
+    form.idade.value = p.idade;
+    form.sexo.value = p.sexo;
+    form.cpf.value = p.cpf;
+    form.rua.value = p.rua;
+    form.numero.value = p.numero;
+    form.complemento.value = p.complemento;
+    form.bairro.value = p.bairro;
+    form.cidade.value = p.cidade;
+    form.estado.value = p.estado;
+    form.contato.value = p.contato;
+    form.email.value = p.email;
+    form.dataNascimento.value = p.dataNascimento;
+
+    pacienteEditandoIndex = index;
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaPacientes();
+</script>
+
+
+<script>
+  const consultas = JSON.parse(localStorage.getItem('consultas')) || [];
+
+  document.querySelector('#consulta form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      dataHorario: form.dataHorario.value,
+      sintomas: form.sintomas.value,
+      eRetorno: form.eRetorno.value === "true" ? "Sim" : "Não",
+      estaAtiva: form.estaAtiva.value === "true" ? "Sim" : "Não"
+    };
+
+    consultas.push(dados);
+    localStorage.setItem('consultas', JSON.stringify(consultas)); // Salva no localStorage
+    atualizarTabelaConsultas();
+    form.reset();
+  });
+
+  function atualizarTabelaConsultas() {
+    const tabela = document.getElementById('tabelaConsultas');
+    tabela.innerHTML = '';
+
+    consultas.forEach((c, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${c.id}</td>
+        <td>${c.dataHorario.replace("T", " ")}</td>
+        <td>${c.sintomas}</td>
+        <td>${c.eRetorno}</td>
+        <td>${c.estaAtiva}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarConsulta(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirConsulta(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirConsulta(index) {
+    if (confirm('Deseja excluir esta consulta?')) {
+      consultas.splice(index, 1);
+      localStorage.setItem('consultas', JSON.stringify(consultas)); // Atualiza o localStorage
+      atualizarTabelaConsultas();
+    }
+  }
+
+   function editarConsulta(index) {
+    const c = consultas[index];
+    const form = document.querySelector('#consulta form');
+
+    form.id.value = c.id;
+    form.dataHorario.value = c.dataHorario;
+    form.sintomas.value = c.sintomas;
+    form.eRetorno.value = c.eRetorno === "Sim" ? "true" : "false"; // Ajusta o valor para o select
+    form.estaAtiva.value = c.estaAtiva === "Sim" ? "true" : "false"; // Ajusta o valor para o select
+
+    consultaEditandoIndex = index; // Armazena o índice da consulta que está sendo editada
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaConsultas();
+</script>
+
+
+<script>
+  const prontuarios = JSON.parse(localStorage.getItem('prontuarios')) || [];
+
+  let prontuarioEditandoIndex = null; // Variável para armazenar o índice do prontuário que está sendo editado
+
+  document.querySelector('#prontuario form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      receituario: form.receituario.value,
+      exames: form.exames.value,
+      observacoes: form.observacoes.value
+    };
+
+    if (prontuarioEditandoIndex === null) {
+      prontuarios.push(dados); // Se não houver edição, adiciona um novo prontuário
+    } else {
+      prontuarios[prontuarioEditandoIndex] = dados; // Se houver edição, atualiza o prontuário existente
+    }
+
+    localStorage.setItem('prontuarios', JSON.stringify(prontuarios)); // Salva no localStorage
+    atualizarTabelaProntuarios();
+    form.reset();
+    prontuarioEditandoIndex = null; // Reseta o índice após a edição
+  });
+
+  function atualizarTabelaProntuarios() {
+    const tabela = document.getElementById('tabelaProntuarios');
+    tabela.innerHTML = '';
+
+    prontuarios.forEach((p, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${p.id}</td>
+        <td>${p.receituario}</td>
+        <td>${p.exames}</td>
+        <td>${p.observacoes}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarProntuario(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirProntuario(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirProntuario(index) {
+    if (confirm('Deseja excluir este prontuário?')) {
+      prontuarios.splice(index, 1);
+      localStorage.setItem('prontuarios', JSON.stringify(prontuarios)); // Atualiza o localStorage
+      atualizarTabelaProntuarios();
+    }
+  }
+
+  function editarProntuario(index) {
+    const p = prontuarios[index];
+    const form = document.querySelector('#prontuario form');
+
+    form.id.value = p.id;
+    form.receituario.value = p.receituario;
+    form.exames.value = p.exames;
+    form.observacoes.value = p.observacoes;
+
+    prontuarioEditandoIndex = index; // Armazena o índice do prontuário que está sendo editado
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaProntuarios();
+</script>
+
+
+<script>
+  const especialidades = JSON.parse(localStorage.getItem('especialidades')) || [];
+
+  let especialidadeEditandoIndex = null; // Variável para armazenar o índice da especialidade que está sendo editada
+
+  document.querySelector('#especialidade form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      nome: form.nome.value,
+      descricao: form.descricao.value
+    };
+
+    if (especialidadeEditandoIndex === null) {
+      especialidades.push(dados); // Se não houver edição, adiciona uma nova especialidade
+    } else {
+      especialidades[especialidadeEditandoIndex] = dados; // Se houver edição, atualiza a especialidade existente
+    }
+
+    localStorage.setItem('especialidades', JSON.stringify(especialidades)); // Salva no localStorage
+    atualizarTabelaEspecialidades();
+    form.reset();
+    especialidadeEditandoIndex = null; // Reseta o índice após a edição
+  });
+
+  function atualizarTabelaEspecialidades() {
+    const tabela = document.getElementById('tabelaEspecialidades');
+    tabela.innerHTML = '';
+
+    especialidades.forEach((esp, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${esp.id}</td>
+        <td>${esp.nome}</td>
+        <td>${esp.descricao}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarEspecialidade(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirEspecialidade(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirEspecialidade(index) {
+    if (confirm('Deseja excluir esta especialidade?')) {
+      especialidades.splice(index, 1);
+      localStorage.setItem('especialidades', JSON.stringify(especialidades)); // Atualiza o localStorage
+      atualizarTabelaEspecialidades();
+    }
+  }
+
+  function editarEspecialidade(index) {
+    const esp = especialidades[index];
+    const form = document.querySelector('#especialidade form');
+
+    form.id.value = esp.id;
+    form.nome.value = esp.nome;
+    form.descricao.value = esp.descricao;
+
+    especialidadeEditandoIndex = index; // Armazena o índice da especialidade que está sendo editada
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaEspecialidades();
+</script>
+
+
+<script>
+  const convenios = JSON.parse(localStorage.getItem('convenios')) || [];
+
+  let convenioEditandoIndex = null; // Variável para armazenar o índice do convênio que está sendo editado
+
+  document.querySelector('#convenio form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const dados = {
+      id: form.id.value,
+      nome: form.nome.value,
+      descricao: form.descricao.value
+    };
+
+    if (convenioEditandoIndex === null) {
+      convenios.push(dados); // Se não houver edição, adiciona um novo convênio
+    } else {
+      convenios[convenioEditandoIndex] = dados; // Se houver edição, atualiza o convênio existente
+    }
+
+    localStorage.setItem('convenios', JSON.stringify(convenios)); // Salva no localStorage
+    atualizarTabelaConvenios();
+    form.reset();
+    convenioEditandoIndex = null; // Reseta o índice após a edição
+  });
+
+  function atualizarTabelaConvenios() {
+    const tabela = document.getElementById('tabelaConvenios');
+    tabela.innerHTML = '';
+
+    convenios.forEach((c, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${c.id}</td>
+        <td>${c.nome}</td>
+        <td>${c.descricao}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarConvenio(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirConvenio(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirConvenio(index) {
+    if (confirm('Deseja excluir este convênio?')) {
+      convenios.splice(index, 1);
+      localStorage.setItem('convenios', JSON.stringify(convenios)); // Atualiza o localStorage
+      atualizarTabelaConvenios();
+    }
+  }
+
+  function editarConvenio(index) {
+    const c = convenios[index];
+    const form = document.querySelector('#convenio form');
+
+    form.id.value = c.id;
+    form.nome.value = c.nome;
+    form.descricao.value = c.descricao;
+
+    convenioEditandoIndex = index; // Armazena o índice do convênio que está sendo editado
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaConvenios();
+</script>
+
+
+<script>
+  const perfis = JSON.parse(localStorage.getItem('perfis')) || [];
+
+  let perfilEditandoIndex = null; // Variável para armazenar o índice do perfil que está sendo editado
+
+  document.querySelector('#perfil form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const permissoes = [];
+
+    // Coleta todas as permissões marcadas
+    form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      if (cb.checked) {
+        permissoes.push(cb.name);
+      }
+    });
+
+    const dados = {
+      id: form.id.value,
+      nome: form.nome.value,
+      permissoes: permissoes
+    };
+
+    if (perfilEditandoIndex === null) {
+      perfis.push(dados); // Se não houver edição, adiciona um novo perfil
+    } else {
+      perfis[perfilEditandoIndex] = dados; // Se houver edição, atualiza o perfil existente
+    }
+
+    localStorage.setItem('perfis', JSON.stringify(perfis)); // Salva no localStorage
+    atualizarTabelaPerfis();
+    form.reset();
+    perfilEditandoIndex = null; // Reseta o índice após a edição
+  });
+
+  function atualizarTabelaPerfis() {
+    const tabela = document.getElementById('tabelaPerfis');
+    tabela.innerHTML = '';
+
+    perfis.forEach((p, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${p.id}</td>
+        <td>${p.nome}</td>
+        <td>${p.permissoes.join(', ')}</td>
+        <td>
+          <button class="btn btn-info btn-xs" onclick="editarPerfil(${index})">Editar</button>
+          <button class="btn btn-danger btn-xs" onclick="excluirPerfil(${index})">Excluir</button>
+        </td>
+      `;
+      tabela.appendChild(row);
+    });
+  }
+
+  function excluirPerfil(index) {
+    if (confirm('Deseja excluir este perfil?')) {
+      perfis.splice(index, 1);
+      localStorage.setItem('perfis', JSON.stringify(perfis)); // Atualiza o localStorage
+      atualizarTabelaPerfis();
+    }
+  }
+
+  function editarPerfil(index) {
+    const p = perfis[index];
+    const form = document.querySelector('#perfil form');
+
+    form.id.value = p.id;
+    form.nome.value = p.nome;
+
+    // Marca as permissões no formulário de edição
+    form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      cb.checked = p.permissoes.includes(cb.name);
+    });
+
+    perfilEditandoIndex = index; // Armazena o índice do perfil que está sendo editado
+  }
+
+  // Atualiza a tabela ao carregar a página
+  atualizarTabelaPerfis();
+</script>
+
+
+<script>
+  function abrirSecao(id) {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+<script>
+  function editarFuncionario(botao) {
+    // Pegando a linha onde está o botão
+    var linha = botao.closest('tr');
+    var colunas = linha.querySelectorAll('td');
+
+    // Pegando os valores das colunas
+    var id = colunas[0].innerText;
+    var usuario = colunas[1].innerText;
+    var nome = colunas[2].innerText;
+    var cpf = colunas[3].innerText;
+    var email = colunas[4].innerText;
+    var contato = colunas[5].innerText;
+    var dataNascimento = colunas[6].innerText;
+
+    // Preenchendo os campos do formulário
+    document.querySelector('input[name="id"]').value = id;
+    document.querySelector('input[name="usuario"]').value = usuario;
+    document.querySelector('input[name="nome"]').value = nome;
+    document.querySelector('input[name="cpf"]').value = cpf;
+    document.querySelector('input[name="email"]').value = email;
+    document.querySelector('input[name="contato"]').value = contato;
+    document.querySelector('input[name="dataNascimento"]').value = dataNascimento;
+  }
+</script>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
