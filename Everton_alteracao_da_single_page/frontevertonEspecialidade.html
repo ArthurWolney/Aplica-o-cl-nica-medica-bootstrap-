@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Clínica Médica</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      position: relative;
+      padding-top: 70px;
+    }
+    .panel {
+      margin-bottom: 40px;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .nav > li > a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="70">
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      
+      <ul class="nav navbar-nav">
+        <li><a href="fronteverton.html"><span class="glyphicon glyphicon-th-list"></span> Clínica Médica</a></li>
+        <li><a href="frontevertonPerfil.html"><span class="glyphicon glyphicon-th-list"></span> Perfil</a></li>
+        <li><a href="frontevertonTipo.html">Tipo</a></li>
+        <li><a href="frontevertonFuncionario.html"><span class="glyphicon glyphicon-user"></span> Funcionário</a></li>
+        <li><a href="frontevertonEspecialidade.html"><span class="glyphicon glyphicon-briefcase"></span> Especialidade</a></li>
+        <li><a href="frontevertonPaciente.html"><span class="glyphicon glyphicon-heart"></span> Paciente</a></li>
+        <li><a href="frontevertonConvenio.html"><span class="glyphicon glyphicon-credit-card"></span> Convênio</a></li>
+        <li><a href="frontevertonConsulta.html"><span class="glyphicon glyphicon-calendar"></span> Consulta</a></li>
+        <li><a href="frontevertonProntuario.html"><span class="glyphicon glyphicon-list-alt"></span> Prontuário</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+  
+
+
+    <!-- Especialidade -->
+<div id="especialidade" class="panel panel-danger">
+    <div class="panel-heading"><h3 class="panel-title">Especialidade</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" name="id">
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" name="nome">
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea class="form-control" name="descricao" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Salvar Especialidade</button>
+      </form>
+      <h4>Histórico de Especialidades Cadastradas</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody id="tabelaEspecialidades">
+    <!-- Dados inseridos via JavaScript -->
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  
+
+    
+</body>
+</html>
