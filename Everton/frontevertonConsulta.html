@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <title>Clínica Médica</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="icon" href="favicon/exame.png" type="image/png">
   <style>
+
     body {
       position: relative;
       padding-top: 70px;
@@ -18,11 +20,18 @@
     .nav > li > a {
       cursor: pointer;
     }
+    .panel-body {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 20px;
+}
+
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="70">
 
 <!-- Navbar -->
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       
@@ -41,10 +50,10 @@
   </nav>
   
   <div class="container">
-  
 
     <!-- Consulta -->
-<div id="consulta" class="panel panel-default">
+
+    <div id="consulta" class="panel panel-default">
     <div class="panel-heading"><h3 class="panel-title">Consulta</h3></div>
     <div class="panel-body">
       <form>
@@ -96,14 +105,14 @@
     </tr>
   </thead>
   <tbody id="tabelaConsultas">
+
     <!-- Preenchido dinamicamente -->
+  
   </tbody>
 </table>
 
     </div>
   </div>
   
-
-
 </body>
 </html>
